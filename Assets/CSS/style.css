@@ -1,0 +1,21 @@
+header, h1 { 
+    font-family: 'Baloo Tammudu', cursive;
+    color: black; 
+    margin-top: 20px; 
+    margin-left: 155px;  
+    font-size: 150%;
+}
+
+body { 
+    background-image: url("https://pre00.deviantart.net/c5ad/th/pre/f/2015/046/3/5/minimalist_wallpaper___ariel___disney_by_blugo34-d8i34u9.png");
+}
+
+#timeLeft { 
+    margin-left: 305px;
+    font-weight: bold;
+}
+
+.btn { 
+    margin-left: 307px;
+    background-color: whitesmoke;
+}
