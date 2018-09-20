@@ -1,50 +1,50 @@
- 
- $(document).ready(function (){
- 
- //Trivia Question Array
+
+
+ $(document).ready(function () {
+
+	//Trivia Question Array
  var options = [
      {
     question: "Which of the following was a character in A Bug's Life?",
     choice:["Dot", "Fineas", "Nala", "Tiana"],
      answer: 0,
-    photo: "Assets/Images/dot.png"
- },{
+    photo: "assets/images/dot.png"
+ }, { 
      question: "Who is Princess Auroa's Prince?",
      choice:["Prince Henry", "Prince Phillip", "Prince Charming", "John Smith"],
      answer: 1,
-     photo: "Assets/Images/phillip.jpg"
+     photo: "assets/images/phillip.jpg"
  }, {
      question: "Who gave Snow White the poison apple?",
      choice:["The Bad Queen", "The Evil Queen", "The Ugly Lady", "The Old Witch"],
      answer: 1,
-     photo: "Assets/Images/evil.png"
+     photo: "assets/images/evil.jpg"
  }, {
      question: "Who helped Nemo find his way back to his dad?",
      choice:["Darla", "Gill", "Bruce", "Dory"],
      answer: 3,
-     photo: "Assets/Images/dory.jpg"
+     photo: "assets/images/dory.jpeg"
  }, {
      question: "What is the name of the Racoon from Pocahontas?",
      choice:["Nico", "Nix", "Meeko", "Meeks"],
      answer: 2,
-     photo: "Assets/Images/meeko.jpg"
+     photo: "assets/images/meeko.jpg"
  }, {
      question: "Who tried to kidnap the Little Mermaid?",
      choice:["Ursula", "Cruella De Vil", "Maleficent", "Jafar"],
      answer: 0,
-     photo: "Assets/Images/ursula.png"
+     photo: "assets/images/ursula.png"
  }, {
      question: "What did Cinderella lose after the royal ball?",
      choice:["A necklace", "A glass slipper", "A piece of her dress", "Her Prince"],
      answer: 1,
-     photo: "Assets/Images/cinderella.jpg"
+     photo: "assets/images/cinderella.jpg"
  }];
 
- 
 var correctCount = 0;
 var wrongCount = 0;
 var unanswerCount = 0;
-var timer = 20;
+var timer = 10;
 var intervalId;
 var userGuess ="";
 var running = false;
@@ -55,7 +55,8 @@ var newArray = [];
 var holder = [];
 
 $("#reset").hide();
-//click start button to start game
+
+//Start game function 
 $("#start").on("click", function () {
 		$("#start").hide();
 		displayQuestion();
@@ -64,19 +65,21 @@ $("#start").on("click", function () {
 	holder.push(options[i]);
 }
 	})
-//timer start
+
+//Timer start funtion
 function runTimer(){
 	if (!running) {
 	intervalId = setInterval(decrement, 1000); 
 	running = true;
 	}
 }
-//timer countdown
+
+//Countdown function
 function decrement() {
 	$("#timeleft").html("<h3>Time remaining: " + timer + "</h3>");
 	timer --;
 
-	//stop timer if reach 0
+	//Timer stops once reaching zero 
 	if (timer === 0) {
 		unanswerCount++;
 		stop();
@@ -90,10 +93,8 @@ function stop() {
 	running = false;
 	clearInterval(intervalId);
 }
-//randomly pick question in array if not already shown
-//display question and loop though and display possible answers
+
 function displayQuestion() {
-	
 	index = Math.floor(Math.random()*options.length);
 	pick = options[index];
 
@@ -137,7 +138,7 @@ function hidepicture () {
 
 	var hidpic = setTimeout(function() {
 		$("#answerblock").empty();
-		timer= 20;
+		timer= 10;
 
 	//run the score screen if all questions answered
 	if ((wrongCount + correctCount + unanswerCount) === qCount) {
@@ -172,4 +173,6 @@ $("#reset").on("click", function() {
 
 })
 
-})
+});
+
+
